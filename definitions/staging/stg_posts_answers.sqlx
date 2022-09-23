@@ -15,4 +15,5 @@ select
   cast(parent_id as string) as parent_id
 from
   ${ref("posts_answers")}
+where created_at > DATE('2022-01-01')
 
