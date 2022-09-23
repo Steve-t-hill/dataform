@@ -13,7 +13,7 @@ config {
 
   
   bigquery: {
-    partitionBy: "date(created_at)"
+      partitionBy: "TIMESTAMP_TRUNC(created_at, DAY)"
   },
   assertions: {
     uniqueKey: ["post_id"],
