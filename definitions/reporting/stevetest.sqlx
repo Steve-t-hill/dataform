@@ -1,0 +1,22 @@
+config {
+  type: "view",
+  schema: "reporting",
+  tags: ["daily", "reporting"],
+  columns: {
+    user_id: `A unique identifier for a user`,
+    age: `The age of a user`
+
+  },
+  assertions: {
+    uniqueKey: ["theid"],
+  }
+}
+
+select
+  stg_users.user_id as theid,
+  max(stg_users.age) as maxage
+
+from
+  ${ref("stg_users")} as stg_users
+group by
+  1
